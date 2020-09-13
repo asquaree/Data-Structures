@@ -1,17 +1,19 @@
 #include <iostream>
 #include <vector>
 
+using ll=long long int;
+
 using namespace std;
-void print(vector<int> v);
-vector<int> mergeSort(vector<int> m);
-vector<int> merge(vector<int> left, vector<int> right);
+void print(vector<ll> v);
+vector<ll> mergeSort(vector<ll> m);
+vector<ll> merge(vector<ll> left, vector<ll> right);
 
 
 
 
 int main()
 {
-   vector<int> v;
+   vector<ll> v;
 
    v.push_back(38);
    v.push_back(27);
@@ -30,12 +32,12 @@ int main()
 }
 
 
-vector<int> mergeSort(vector<int> m)
+vector<ll> mergeSort(vector<ll> m)
 {
    if (m.size() <= 1)
       return m;
  
-   vector<int> left, right, result;
+   vector<ll> left, right, result;
    int middle = ((int)m.size()+ 1) / 2;
  
    for (int i = 0; i < middle; i++) {
@@ -53,9 +55,9 @@ vector<int> mergeSort(vector<int> m)
    return result;
 }
 
-vector<int> merge(vector<int> left, vector<int> right)
+vector<ll> merge(vector<ll> left, vector<ll> right)
 {
-   vector<int> result;
+   vector<ll> result;
    while ((int)left.size() > 0 || (int)right.size() > 0) {
       if ((int)left.size() > 0 && (int)right.size() > 0) {
          if ((int)left.front() <= (int)right.front()) {
@@ -79,7 +81,7 @@ vector<int> merge(vector<int> left, vector<int> right)
    return result;
 }
 
-void print(vector<int> v)
+void print(vector<ll> v)
 {
   for(int i = 0; i < v.size(); i++) cout << v[i] << " ";
   cout << endl;
