@@ -10,11 +10,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int n;
-    cin>>n;
-
-    print_num(n);
-
+    print_num(7);
 }
 /////////////OUTPUT/////////////////////////////////////////////////////
 //1 2 3 4 5 6 7
