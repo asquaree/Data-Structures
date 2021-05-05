@@ -108,7 +108,7 @@ bool topdown(int n,int arr[],int summ)
             }
             else
             {
-                dp[i][j]=(dp[i-1][j] || dp[i][j-arr[i-1]]);
+                dp[i][j]=(dp[i-1][j] || dp[i-1][j-arr[i-1]]);
             }
         }
     }
