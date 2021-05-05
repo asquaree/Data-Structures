@@ -88,13 +88,13 @@ bool topdown(int n,int arr[],int summ)
     {
         for(int j=1;j<=summ;j++)
         {
-            if(arr[i]>j)
+            if(arr[i-1]>j)
             {
                 dp[i][j]=dp[i-1][j];
             }
             else
             {
-                dp[i][j]=(dp[i-1][j] || dp[i][j-arr[i-1]]);
+                dp[i][j]=(dp[i-1][j] || dp[i-1][j-arr[i-1]]);
             }
         }
     }
