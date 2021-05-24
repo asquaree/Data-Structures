@@ -1,14 +1,16 @@
 //LONGEST COMMON SUBSEQUENCE
 //X: ABCDE
 //Y:ABFCE
-
+//aakashaggarwal
+//aakanshagga
 //choice-ok longest DP
 
 #include<bits/stdc++.h>
 using namespace std;
 
 int recursion(string x,string y,int n,int m);
-string topdown(string x,string y,int n,int m);
+string topdown2(string x,string y,int n,int m);
+string topdown1(string x,string y,int n,int m);
 
 
 
@@ -28,8 +30,11 @@ int main()
 
    //cout<<recursion(x,y,n,m)<<"\n";
 
-    //TOPDOWN
-    cout<<topdown(x,y,n,m)<<"\n";
+    //TOPDOWN1
+    cout<<topdown1(x,y,n,m)<<"\n";
+    //TOPDOWN2
+    cout<<topdown2(x,y,n,m)<<"\n";
+
 
     time(&end);
     double time_taken = double(end - start);
@@ -60,12 +65,8 @@ int recursion(string x,string y,int n,int m)
 }
 
 
-
-
-
-
-//TOPDOWN
-string topdown(string x,string y,int n,int m)
+//TOPDOWN1
+string topdown1(string x,string y,int n,int m)
 {
     string lcs;
     int dp[n+1][m+1];
@@ -125,6 +126,53 @@ string topdown(string x,string y,int n,int m)
     reverse(lcs.begin(),lcs.end());
 
     return lcs;
+
+
+}
+
+
+
+//TOPDOWN2
+string topdown2(string x,string y,int n,int m)
+{
+    //string lcs;
+    string dp[n+1][m+1];
+
+    for(int i=0;i<=n;i++)
+    {
+        dp[i][0]="";
+    }
+    for(int i=0;i<=m;i++)
+    {
+        dp[0][i]="";
+    }
+
+
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=m;j++)
+        {
+            if(x[i-1]==y[j-1])
+            {
+                dp[i][j]=dp[i-1][j-1]+x[i-1];
+
+            }
+            else
+            {
+                if(dp[i-1][j].size()>dp[i][j-1].size())
+                {
+                    dp[i][j]=dp[i-1][j];
+                }
+                else
+                {
+                    dp[i][j]=dp[i][j-1];
+                }
+            }
+        }
+    }
+
+    return dp[n][m];
+
 
 
 }
